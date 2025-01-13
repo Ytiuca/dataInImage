@@ -51,7 +51,7 @@ elif fileOrText == "2":
 
 liste = []
 
-best_size_v1(texte, liste)
+best_size_v2(texte, liste)
 
 lower = len(texte)
 best = ()
