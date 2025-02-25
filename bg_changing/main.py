@@ -5,15 +5,30 @@ import time
 import keyboard as k
 from dotenv import load_dotenv
 from os import getenv
+import math
 
 load_dotenv(".env")
 
 path = getenv("BG_PATH")
+try:
+    input_x_size = abs(int(input("Taille du background en x: ")))
+except:
+    input_x_size = randint(1, 3)
+try:
+    input_y_size = abs(int(input("Taille du background en y: ")))
+except:
+    input_y_size = randint(1, 3)
+try:
+    interval = abs(
+        int(input("Temps entre chaque changement de background (0 pour aucun): "))
+    )
+except:
+    interval = randint(5, 10)
 
 
 def generate():
-    sizeex = randint(1, 3)
-    sizeey = randint(1, 3)
+    sizeex = input_x_size
+    sizeey = input_y_size
     sizee = (sizeex, sizeey)
     im = Image.new(mode="RGBA", size=sizee)
     pixels = im.load()
@@ -24,6 +39,9 @@ def generate():
     ctypes.windll.user32.SystemParametersInfoW(20, 0, f"{path}/bg.png", 0)
 
 
+generate()
+
 while not k.is_pressed("1"):
-    time.sleep(10)
-    generate()
+    if interval != 0:
+        time.sleep(interval)
+        generate()
