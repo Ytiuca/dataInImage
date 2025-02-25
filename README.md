@@ -9,3 +9,7 @@ Ce projet permet de générer des images multicolores à base de textes, ce qui 
 Cette image correspond par exemple au livre "alice au pays des merveilles".
 
 Ce projet permet aussi de récupérer le message caché dans une image.
+
+## BG_Changing
+
+Ce projet permet de générer des fonds d'écran aléatoires qui changent selon un interval donné.
