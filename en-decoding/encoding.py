@@ -10,7 +10,7 @@ LOGGER = Logger()
 
 
 @time_this_function
-def best_size_v1(txt: str, sizes_list: list):
+def calcul_size_v1(txt: str, sizes_list: list):
     progress_bar_xy = IncrementalBar("calcul des tailles possibles (x,y)", max=len(txt))
     for i in range(1, len(txt) + 1):
         for j in range(1, len(txt) + 1):
@@ -21,11 +21,23 @@ def best_size_v1(txt: str, sizes_list: list):
 
 
 @time_this_function
-def best_size_v2(txt: str, sizes_list: list):
+def calcul_size_v2(txt: str, sizes_list: list):
     LOGGER.info("Calcul de la taille idéale (x,y)")
     for i in range(1, len(txt) // 2):
         if len(txt) % i == 0:
             sizes_list.append((i, len(txt) // i))
+
+
+@time_this_function
+def best_size_v1(texte_len: int, size_list: list[tuple[int, int]]) -> tuple[int, int]:
+    lower = texte_len
+    for k in size_list:
+        if k[0] - k[1] >= 0 and k[0] - k[1] <= lower:
+            lower = k[0] - k[1]
+            return (k[0], k[1])
+        if k[1] - k[0] >= 0 and k[1] - k[0] <= lower:
+            lower = k[1] - k[0]
+            return (k[1], k[0])
 
 
 directory = filedialog.askdirectory()
@@ -51,18 +63,9 @@ elif fileOrText == "2":
 
 liste = []
 
-best_size_v2(texte, liste)
+calcul_size_v2(texte, liste)
 
-lower = len(texte)
-best = ()
-
-for k in liste:
-    if k[0] - k[1] >= 0 and k[0] - k[1] <= lower:
-        lower = k[0] - k[1]
-        best = (k[0], k[1])
-    if k[1] - k[0] >= 0 and k[1] - k[0] <= lower:
-        lower = k[1] - k[0]
-        best = (k[1], k[0])
+best = best_size_v1(len(texte), liste)
 
 print(f"Le fichier contient {len(texte)} caractères")
 # print(liste)

@@ -1,2 +1,8 @@
 build
 dist
+test.py
+*.spec
+*.txt
+*.zip
+noLineBreak.py
+exe
