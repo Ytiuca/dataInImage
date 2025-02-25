@@ -19,4 +19,6 @@ Ce projet permet de générer des fonds d'écran aléatoires qui changent selon 
 - créer un .env
 - ajouter la variable "BG_PATH" et indiquer le chemin ou sera généré le background
 
-  BG_PATH=C:/users/Me/background
+```.env
+BG_PATH=C:/users/Me/background
+```
