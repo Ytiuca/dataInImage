@@ -1,0 +1,4 @@
+exe
+*.png
+test.py
+.env
