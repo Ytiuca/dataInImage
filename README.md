@@ -13,3 +13,10 @@ Ce projet permet aussi de récupérer le message caché dans une image.
 ## BG_Changing
 
 Ce projet permet de générer des fonds d'écran aléatoires qui changent selon un interval donné.
+
+### Setup
+
+- créer un .env
+- ajouter la variable "BG_PATH" et indiquer le chemin ou sera généré le background
+
+  BG_PATH=C:/users/Me/background
