@@ -13,6 +13,9 @@ Ce projet permet aussi de récupérer le message caché dans une image.
 ## BG_Changing
 
 Ce projet permet de générer des fonds d'écran aléatoires qui changent selon un interval donné.
+Il faut dans les paramètres windows que la section *Personnaliser votre arrière-plan* soit sur *Image*.
+Je recommande la section *Choisir un ajustement pour votre image de bureau* soit sur *Étirer* bien que vous pouvez l'ajuster selon vos goûts.
+![image paramétrage windows](image.png)
 
 ### Setup
 
