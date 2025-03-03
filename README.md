@@ -22,6 +22,10 @@ Je recommande la section *Choisir un ajustement pour votre image de bureau* soit
 - créer un .env
 - ajouter la variable "BG_PATH" et indiquer le chemin ou sera généré le background
 
+Vous pouvez ajouter les variables *X_LENGTH*, *Y_LENGTH* et *TIME_BEFORE_BG_CHANGE* afin que le programme puisse être exécuté automatiquement au démarrage. Il vous faudra aussi ajouter le fichier *startup.bat* dans le dossier de démarrage de windows.
+
+Appuyer sur *Win+r* puis entrez *shell:startup* et coller le fichier dedans.
+
 ```.env
 BG_PATH=C:/users/Me/background
 ```
