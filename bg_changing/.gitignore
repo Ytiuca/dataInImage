@@ -2,3 +2,4 @@ exe
 *.png
 test.py
 .env
+__pycache__
