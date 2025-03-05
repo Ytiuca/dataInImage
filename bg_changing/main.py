@@ -2,7 +2,6 @@ from PIL import Image
 from random import randint
 import ctypes
 import time
-import keyboard as k
 from dotenv import load_dotenv
 from os import getenv
 from args import arguments
@@ -62,7 +61,9 @@ def generate():
 
 generate()
 
-while not k.is_pressed("1"):
+while True:
     if interval != 0:
         time.sleep(interval)
         generate()
+    else:
+        break
