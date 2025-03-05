@@ -22,15 +22,29 @@ Je recommande que la section *Choisir un ajustement pour votre image de bureau* 
 - créer un .env
 - ajouter la variable "BG_PATH" et indiquer le chemin ou sera généré le background
 
-Vous pouvez ajouter les variables *X_LENGTH*, *Y_LENGTH* et *TIME_BEFORE_BG_CHANGE* afin que le programme puisse être exécuté automatiquement au démarrage.
+Vous pouvez ajouter les variables `X_LENGTH`, `Y_LENGTH` et `TIME_BEFORE_BG_CHANGE` afin que le programme puisse être exécuté automatiquement au démarrage.
+
+Il vous faudra aussi ajouter le fichier *"startup.lnk* dans le dossier de démarrage de windows.
+
+Appuyer sur *Win+r* puis entrez *shell:startup* et coller le fichier dedans.
+
+Vous pouvez aussi ajouter les variables `SAVE_BG` et `SAVE_DIRECTORY` afin d'enregistrer les fonds d'écran générés.
 
 ```.env
 BG_PATH=C:\path\to\generated\background
 X_LENGTH=*optionnal*
 Y_LENGTH=*optionnal*
 TIME_BEFORE_BG_CHANGE=*optionnal*
+SAVE_BG=*optionnal* true|false
+SAVE_DIRECTORY=C:\path\to\saved\folder
 ```
 
-Il vous faudra aussi ajouter le fichier *"startup.lnk* dans le dossier de démarrage de windows.
+Il est possible de lancer le programme avec des arguments:
 
-Appuyer sur *Win+r* puis entrez *shell:startup* et coller le fichier dedans.
+`python main.py -x INT -y INT -d INT -s OPTIONNAL`
+
+où
+-x, --x-length est un entier représentant le nombre de pixel sur l'axe x
+-y, --y-length est un entier représentant le nombre de pixel sur l'axe y
+-d, --delay est un entier représentant le temps entre chaque changement de fond d'écran (0 pour aucun)
+-s, --save est un flag optionnel, s'il est présent les fond d'écrans seront enregistrés dans le `SAVE_DIRECTORY`

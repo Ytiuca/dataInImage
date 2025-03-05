@@ -8,12 +8,16 @@ from os import getenv
 from time_this_function import time_this_function
 from args import arguments
 from logger import Logger
+import shutil
+from datetime import datetime
 
 LOGGER = Logger()
 
 load_dotenv(".env")
 
 path = getenv("BG_PATH")
+save_path = getenv("SAVE_DIRECTORY")
+
 try:
     if arguments.x_length:
         input_x_size = arguments.x_length
@@ -50,6 +54,14 @@ def generate():
         for j in range(im.size[1]):
             pixels[i, j] = (randint(0, 255), randint(0, 255), randint(0, 255))
     im.save(f"{path}/bg.png")
+    LOGGER.debug(
+        f"{save_path}\{str(datetime.timestamp(datetime.now())).replace(".", "")}.png"
+    )
+    if arguments.save:
+        shutil.copy2(
+            f"{path}/bg.png",
+            f"{save_path}\{str(datetime.timestamp(datetime.now())).replace(".", "")}.png",
+        )
     ctypes.windll.user32.SystemParametersInfoW(20, 0, f"{path}/bg.png", 0)
 
 

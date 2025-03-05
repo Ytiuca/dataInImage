@@ -3,3 +3,4 @@ exe
 test.py
 .env
 __pycache__
+out
