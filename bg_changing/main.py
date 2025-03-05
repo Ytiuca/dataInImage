@@ -5,7 +5,6 @@ import time
 import keyboard as k
 from dotenv import load_dotenv
 from os import getenv
-from time_this_function import time_this_function
 from args import arguments
 import shutil
 from datetime import datetime
@@ -40,7 +39,6 @@ except:
     interval = randint(5, 10)
 
 
-@time_this_function
 def generate():
     sizeex = input_x_size
     sizeey = input_y_size

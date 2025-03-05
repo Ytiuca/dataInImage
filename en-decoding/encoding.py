@@ -1,15 +1,10 @@
 from random import randint
 from tkinter import filedialog
-from time_this_function import time_this_function
-from logger import Logger
 from PIL import Image
 from progress.bar import IncrementalBar
 from unidecode import unidecode
 
-LOGGER = Logger()
 
-
-@time_this_function
 def calcul_size_v1(txt: str, sizes_list: list):
     progress_bar_xy = IncrementalBar("calcul des tailles possibles (x,y)", max=len(txt))
     for i in range(1, len(txt) + 1):
@@ -20,15 +15,12 @@ def calcul_size_v1(txt: str, sizes_list: list):
     progress_bar_xy.finish()
 
 
-@time_this_function
 def calcul_size_v2(txt: str, sizes_list: list):
-    LOGGER.info("Calcul de la taille idéale (x,y)")
     for i in range(1, len(txt) // 2):
         if len(txt) % i == 0:
             sizes_list.append((i, len(txt) // i))
 
 
-@time_this_function
 def best_size_v1(texte_len: int, size_list: list[tuple[int, int]]) -> tuple[int, int]:
     lower = texte_len
     for k in size_list:
