@@ -52,7 +52,7 @@ def generate():
     if arguments.save:
         shutil.copy2(
             f"{path}/bg.png",
-            f"{save_path}\{str(datetime.timestamp(datetime.now())).replace(".", "")}.png",
+            f"{save_path}/{str(datetime.timestamp(datetime.now())).replace(".", "")}.png",
         )
     ctypes.windll.user32.SystemParametersInfoW(20, 0, f"{path}/bg.png", 0)
 
