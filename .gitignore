@@ -1,0 +1,7 @@
+exe
+*.png
+test.py
+.env
+__pycache__
+out
+*.pdf
