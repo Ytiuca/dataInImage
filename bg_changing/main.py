@@ -7,11 +7,8 @@ from dotenv import load_dotenv
 from os import getenv
 from time_this_function import time_this_function
 from args import arguments
-from logger import Logger
 import shutil
 from datetime import datetime
-
-LOGGER = Logger()
 
 load_dotenv(".env")
 
@@ -54,9 +51,6 @@ def generate():
         for j in range(im.size[1]):
             pixels[i, j] = (randint(0, 255), randint(0, 255), randint(0, 255))
     im.save(f"{path}/bg.png")
-    LOGGER.debug(
-        f"{save_path}\{str(datetime.timestamp(datetime.now())).replace(".", "")}.png"
-    )
     if arguments.save:
         shutil.copy2(
             f"{path}/bg.png",
